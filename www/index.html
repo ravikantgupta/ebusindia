@@ -11,6 +11,7 @@
     // device APIs are available
     //
     function onDeviceReady() {
+      alert(device.uuid);
         var element = document.getElementById('deviceProperties');
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
                             'Device Cordova: '  + device.cordova  + '<br />' +
