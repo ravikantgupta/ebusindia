@@ -61,9 +61,6 @@
 		   var datecity_to= window.localStorage.getItem("datecity_to");
 	       var jrn_date= window.localStorage.getItem("datejrn_date");
 		   
-		  
-		   
-		 
 		   
 		   if (localStorage.getItem("datejrn_date") === null) {
                  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -94,17 +91,56 @@
 		   	}	
 
 
-                  alert(device.uuid);
+
                  $.ajax({	    	type:'GET',
 						
 						url:"https://www.m.ebusindia.in/service/getcityhtml",
 						data:'uuid='+device.uuid,
-						
+						  dataType: 'json',
 						success:function(data)
 						{
 						
 						alert(data);
+						 var currencies = [];
+						var i=0;
+						for (var key in data) {
+							if (data.hasOwnProperty(key)) {
+																
+								contstr={value: data[key], data:key};
+								currencies[i]=contstr;
+								
+								i++;
+							}
+						}
+		
+							 
 						
+							
+							jQuery('#autocomplete').autocomplete({
+								lookup: currencies,
+								onSelect: function (suggestion) {
+								
+								  $('#city_from').val(suggestion.data);
+								}
+							  }); 
+							  
+							 
+							  
+							   jQuery('#autocomplete1').autocomplete({
+								lookup: currencies,
+								onSelect: function (suggestion) {
+								
+								  jQuery('#city_to').val(suggestion.data);
+								}
+							  });
+							  
+							 
+							  
+						  document.getElementById("city_from").value =datecity_from;
+		                     document.getElementById("city_to").value =datecity_to;
+							 
+							 
+							 
 							 
 							
 						},
