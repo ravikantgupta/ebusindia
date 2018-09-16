@@ -98,7 +98,7 @@
                  $.ajax({	    	type:'GET',
 						
 						url:"https://www.m.ebusindia.in/service/getcityhtml",
-						data:'falag=1',
+						data:'falag=1&uuid='+device.uuid,
 						  dataType: 'json',
 						success:function(data)
 						{
