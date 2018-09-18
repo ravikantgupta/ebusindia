@@ -92,55 +92,16 @@
 
 alert('rrrr');
 
-                 $.ajax({	    	type:'GET',
+                 $.ajax({	    	type:'POST',
 						
 						url:"https://www.m.ebusindia.in/success.php",
 						data:'uuid=gh',
 						  dataType: 'json',
 						success:function(data)
 						{
-						
+						alert('ram');
 						alert(data);
-						 var currencies = [];
-						var i=0;
-						for (var key in data) {
-							if (data.hasOwnProperty(key)) {
-																
-								contstr={value: data[key], data:key};
-								currencies[i]=contstr;
-								
-								i++;
-							}
-						}
-		
-							 
-						
-							
-							jQuery('#autocomplete').autocomplete({
-								lookup: currencies,
-								onSelect: function (suggestion) {
-								
-								  $('#city_from').val(suggestion.data);
-								}
-							  }); 
-							  
-							 
-							  
-							   jQuery('#autocomplete1').autocomplete({
-								lookup: currencies,
-								onSelect: function (suggestion) {
-								
-								  jQuery('#city_to').val(suggestion.data);
-								}
-							  });
-							  
-							 
-							  
-						  document.getElementById("city_from").value =datecity_from;
-		                     document.getElementById("city_to").value =datecity_to;
-							 
-							 
-							 
+						 
 							 
 							
 						},
