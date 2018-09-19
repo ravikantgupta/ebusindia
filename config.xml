@@ -16,6 +16,9 @@
      <plugin name="cordova-plugin-whitelist" version="1"/>
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
+	<plugin name="phonegap-plugin-push" source="npm">
+    <param name="SENDER_ID" value="163467203848" />
+</plugin>
 	<platform name="android">
         <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
         <icon density="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
