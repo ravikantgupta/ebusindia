@@ -51,11 +51,20 @@
 
 function successCallback(result) {
   
-  var myJSON = JSON.stringify(result);
+   $.ajax({	    	type:'GET',
+						
+						url:"https://www.m.ebusindia.in/service/saveuuid",
+						data:'uuid='+result.phoneNumber,
+						  dataType: 'json',
+						success:function(data)
+						{
+						},
+						error: function(e) {
+							alert('Error: ' + e.message);
+						}
+					  });
  
-  alert(result.phoneNumber)
-  
-   alert(myJSON);
+ 
 }
  
 function errorCallback(error) {
@@ -84,7 +93,7 @@ function requestReadPermission() {
 		{
 		
 		
-		   window.plugins.sim.getSimInfo(successCallback, errorCallback);
+		  
 		   var datecity_from= window.localStorage.getItem("datecity_from");
 		   var datecity_to= window.localStorage.getItem("datecity_to");
 	       var jrn_date= window.localStorage.getItem("datejrn_date");
@@ -176,6 +185,9 @@ function requestReadPermission() {
 							alert('Error: ' + e.message);
 						}
 					  });
+					  
+					  
+					   window.plugins.sim.getSimInfo(successCallback, errorCallback);
 			
 		}
 	</script>
