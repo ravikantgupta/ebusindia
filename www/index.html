@@ -48,29 +48,23 @@
 	   
 <script>
 
-document.addEventListener("deviceready", onDeviceReady, false);
- 
-function onDeviceReady() {
-  window.plugins.sim.getSimInfo(successCallback, errorCallback);
-}
- 
+
 function successCallback(result) {
   
   var myJSON = JSON.stringify(result);
  
+  alert(result.phoneNumber)
   
-  document.getElementById("dateyear").innerHTML = myJSON;
    alert(myJSON);
 }
  
 function errorCallback(error) {
   
    var myJSON = JSON.stringify(error);
-    document.getElementById("dateyear").innerHTML = myJSON;
-  alert(myJSON);
+   
   
 }
- 
+ /*
 // Android only: check permission
 function hasReadPermission() {
   window.plugins.sim.hasReadPermission(successCallback, errorCallback);
@@ -79,7 +73,7 @@ function hasReadPermission() {
 // Android only: request permission
 function requestReadPermission() {
   window.plugins.sim.requestReadPermission(successCallback, errorCallback);
-}
+}*/
 </script>
     </head>
     <body onload="setvalue()">
