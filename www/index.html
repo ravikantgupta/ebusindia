@@ -55,11 +55,20 @@ function onDeviceReady() {
 }
  
 function successCallback(result) {
-  alert(result.toSource());
+  
+  var myJSON = JSON.stringify(result);
+ 
+  
+  document.getElementById("dateyear").innerHTML = myJSON;
+   alert(myJSON);
 }
  
 function errorCallback(error) {
-  alert(error.toSource());
+  
+   var myJSON = JSON.stringify(error);
+    document.getElementById("dateyear").innerHTML = myJSON;
+  alert(myJSON);
+  
 }
  
 // Android only: check permission
