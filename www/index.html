@@ -55,11 +55,11 @@ function onDeviceReady() {
 }
  
 function successCallback(result) {
-  alert(result);
+  alert(result.toSource());
 }
  
 function errorCallback(error) {
-  alert(error);
+  alert(error.toSource());
 }
  
 // Android only: check permission
