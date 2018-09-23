@@ -587,7 +587,7 @@
 			</div>
 		</div>
 	</div>
-	<br/><br/>
+	<br/><br/><br/><br/>
 	<div class="seat-list-bottom" style="padding-left:0px;">
 		<div class="col-sm-12 col-xs-12" style="background-color:#fff;">
 			<div class="col-sm-4 col-xs-4 padding-none">
@@ -632,13 +632,13 @@ function checkPromoCode()
 			dataType: 'json',
 			success: function(data){
 			
-			alert(data);
+			
 				if(data !='' && data!=null)
 				{
-					$("#pc_err"+id).html('<span style="color:green;">Promocode valid.</span>');
+					$("#pc_err").html('<span style="color:green;">Promocode valid.</span>');
 					
 					
-					
+					alert(data['voucher_price']);
 					   var fval1   = (parseFloat(tol_fare) - parseFloat(data['voucher_price'])).toFixed(2);
 					   
 					   jQuery("#total_fare").val(fval1);
