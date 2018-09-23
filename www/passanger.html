@@ -530,7 +530,7 @@
 				   <input type="hidden" name="dropPlace" id="dropPlace" value="">
 				   <input type="hidden" name="deptFrom" id="deptFrom" value="">
 				   <input type="hidden" name="arriveTo" id="arriveTo" value="">
-                  <input type="hidden" name="total_fare" id="total_fare" value="<?php echo $tot_fare;?>">
+                  <input type="hidden" name="total_fare" id="total_fare" value="">
 				  
 			      <input type="hidden" name="all_service_tax" id="all_service_tax" value="0">
 	              <input type="hidden" name="all_total_fare" id="all_total_fare" value="0">
@@ -561,6 +561,23 @@
 								
 					
 				</div>
+				
+				<div  class="col-sm-12 col-xs-12">
+				  <div id="ccErr" align="center"></div>
+					<h3 class="passanger-detail-head">Apply Coupon Code</h3>
+								
+					<div class="form-inline coupon-box" id="prm_code" style="">
+				   <input type="text" name="pcode" id="pcode" class="form-control" placeholder="Coupon Code">
+                  <button type="button" id="probtn" style="float:right;" onclick="checkPromoCode()" class="book-btn">Apply Coupon</button>
+				  
+				    </div>
+					
+					<div id="pc_err" align="center"></div>
+					
+					
+				</div>
+				
+				
 				</form>
 			</div>
 			
@@ -587,6 +604,61 @@
 
 
 </div>
-
+<script>
+function checkPromoCode()
+ {
+ 
+    var pval = jQuery('#pcode').val();
+	
+	if(pval=='')
+	{
+	  jQuery('#pcode').css('border-color','#ff0000');
+	  return false;
+	}else
+	{
+	  jQuery('#pcode').css('border-color','');
+	}
+ 
+   var busid= window.localStorage.getItem("busid");
+   
+    var tol_fare= window.localStorage.getItem("tol_fare");
+	
+	
+		$.ajax({
+			type  :  'GET',
+			url   :  'https://www.m.ebusindia.in/service/check_promo',
+			data  :  {value:pval},
+			dataType: 'json',
+			success: function(data){
+				if(data !='' && data!=null)
+				{
+					$("#pc_err"+id).html('<span style="color:green;">Promocode valid.</span>');
+					
+					
+					
+					   var fval1   = (parseFloat(tol_fare) - parseFloat(data['voucher_price'])).toFixed(2);
+					   
+					   jQuery("#total_fare").val(fval1);
+					   	
+                       jQuery('#totamount').html(fval1);  
+ 						
+					   jQuery('#pcode').prop("readonly",true);
+					   jQuery('#pcode').prop('disabled', true);
+					   jQuery('#pcode').val('');
+					   
+					     jQuery('#probtn').prop("readonly",true);
+					   jQuery('#probtn').prop('disabled', true);
+					
+					return false;
+				}
+				else{
+					jQuery("#pc_err").html('<span style="color:red;">Promocode not valid.</span>');
+				}
+			}
+		}); 
+		
+		return false;
+ }
+  </script>
 </body>
 </html>
