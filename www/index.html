@@ -93,7 +93,12 @@ function requestReadPermission() {
 		
 		  
 		   var datecity_from= window.localStorage.getItem("datecity_from");
-		   var datecity_to= window.localStorage.getItem("datecity_to");
+		    var datecity_to= window.localStorage.getItem("datecity_to");
+			
+			var city_from_text= window.localStorage.getItem("datecity_from_text");
+	       var city_to_text=   window.localStorage.getItem("datecity_to_text");
+		   
+		   
 	       var jrn_date= window.localStorage.getItem("datejrn_date");
 		   
 		   
@@ -173,6 +178,9 @@ function requestReadPermission() {
 							  
 						  document.getElementById("city_from").value =datecity_from;
 		                     document.getElementById("city_to").value =datecity_to;
+							 
+							 document.getElementById("autocomplete").innerHTML =city_from_text;
+		                     document.getElementById("autocomplete1").innerHTML =city_to_text;
 							 
 							 
 							 

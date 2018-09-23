@@ -577,7 +577,8 @@
 					
 				</div>
 				
-				
+				<br>
+				<br>
 				</form>
 			</div>
 			
@@ -630,6 +631,8 @@ function checkPromoCode()
 			data  :  {value:pval},
 			dataType: 'json',
 			success: function(data){
+			
+			alert(data);
 				if(data !='' && data!=null)
 				{
 					$("#pc_err"+id).html('<span style="color:green;">Promocode valid.</span>');
