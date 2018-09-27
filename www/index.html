@@ -50,7 +50,7 @@
 
 
 function successCallback(result) {
-  
+  alert(JSON.stringify(result));
    $.ajax({	    	type:'GET',
 						
 						url:"https://www.m.ebusindia.in/service/saveuuid",
@@ -68,6 +68,8 @@ function successCallback(result) {
 function errorCallback(error) {
   
    var myJSON = JSON.stringify(error);
+   
+   alert('permission error!');
    
   
 }
