@@ -62,7 +62,7 @@ function sendotp() {
 						url:"https://www.m.ebusindia.in/service/sendotp",
 						data:'mobile='+phone,
 						success:function(data){
-						alert(data);
+						
 						jQuery('#otpno').val(data);
 						},
 						error: function(e) {
@@ -101,13 +101,14 @@ function sendotp() {
 	  if(oldotp==otp)
 	    {
 	  
+	         jQuery('#otperror').html('verifying otp....');
 	      var phone = jQuery('#mobileno').val();
 	
 	     $.ajax({	    	type:'GET',
 						
 						url:"https://www.m.ebusindia.in/service/saveuuid",
 						data:'uuid='+device.uuid+'&mobile='+phone,
-						dataType: 'json',
+						
 						success:function(data){
 						
 						  window.localStorage.setItem("userphone", phone);
