@@ -61,7 +61,6 @@ function sendotp() {
 						
 						url:"https://www.m.ebusindia.in/service/sendotp",
 						data:'mobile='+phone,
-						  dataType: 'json',
 						success:function(data){
 						alert(data);
 						jQuery('#otpno').val(data);
