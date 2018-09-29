@@ -52,22 +52,82 @@
 function sendotp() {
 
 
-  alert(jQuery('#mobileno').val());
+  
+   var phone = jQuery('#mobileno').val();
+    var phoneNum = phone.replace(/[^\d]/g, '');
+   if(phoneNum.length > 6 && phoneNum.length < 11) { 
    
-   
-   $.ajax({	    	type:'GET',
+       $.ajax({	    	type:'GET',
 						
-						url:"https://www.m.ebusindia.in/service/saveuuid",
-						data:'uuid='+device.uuid,
+						url:"https://www.m.ebusindia.in/service/sendotp",
+						data:'mobile='+phone,
 						  dataType: 'json',
-						success:function(data){},
+						success:function(data){
+						alert(data);
+						jQuery('#otpno').val(data);
+						},
 						error: function(e) {
 							//alert('UError: ' + e.message);
 						}
 					  });
+
+      jQuery('#mobilenoerror').html('');
+	  
+	  jQuery('#otpmobileno').hide();
+	  jQuery('#otpsms').show();
+	   jQuery('#otperror').html('OTP send on your mobile number.');
+
+   }else
+   {
+   
+     jQuery('#mobilenoerror').html(' Enter valid mobile number');
+   }
+
+
+   
+  
  
  
 }
+
+
+ function checkotp()
+    {
+	
+	
+	
+	  var oldotp=jQuery('#otpno').val();
+	  var otp=jQuery('#otp').val();
+	  
+	  if(oldotp==otp)
+	    {
+	  
+	      var phone = jQuery('#mobileno').val();
+	
+	     $.ajax({	    	type:'GET',
+						
+						url:"https://www.m.ebusindia.in/service/saveuuid",
+						data:'uuid='+device.uuid+'&mobile='+phone,
+						dataType: 'json',
+						success:function(data){
+						
+						  window.localStorage.setItem("userphone", phone);
+						jQuery('#firstcnt').hide();
+						 jQuery('#secondcnt').show();
+						},
+						error: function(e) {
+							//alert('UError: ' + e.message);
+						}
+					  });
+					  
+		}else
+          {
+		       jQuery('#otperror').html('Invalid OTP.');
+		  
+            }		  
+			  
+	
+	}
  
  
 </script>
@@ -80,7 +140,19 @@ function sendotp() {
 		{
 		
 		
-		  
+		  var userphone=	window.localStorage.getItem("userphone");
+						if(userphone)
+						{
+						jQuery('#firstcnt').hide();
+						 jQuery('#secondcnt').show();
+						
+						}else
+						{
+						
+                        jQuery('#firstcnt').show();
+						 jQuery('#secondcnt').hide();
+						
+						}
 		   var datecity_from= window.localStorage.getItem("datecity_from");
 		    var datecity_to= window.localStorage.getItem("datecity_to");
 			
@@ -188,7 +260,7 @@ function sendotp() {
 	</script>
 	
 	
-	 <div class="container" style="overflow:hidden;height: 590px;">
+	 <div class="container" id="firstcnt" style="overflow:hidden;height: 590px;">
        <div class="header">
 
             <div class="row">
@@ -226,11 +298,14 @@ function sendotp() {
 						                      
 											 <span class="locat-icon"><img src="images/mobileicon.png"></span>
                                         </div>
+										<div class="form-group">
+										<span id="mobilenoerror" style="color: wheat;"> </span>
+										 </div>
                                        
                                      <div class="col-sm-12 col-xs-12">
 										<div class="home-search-btn">
 									
-											<button type="button" class="btn my-btn searchlist" onclick="sendotp()">Send OTP</button>
+											<button type="button" class="btn my-btn " onclick="sendotp()">Send OTP</button>
 											
 										</div>
                                       </div>
@@ -242,15 +317,19 @@ function sendotp() {
                                     <form >
                                         <div class="form-group">
                                              <input type="text" name="otp" id="otp" class="form-control place-color"  placeholder="Enter OTP">
+						                       
+											    <input type="text" name="otpno" id="otpno" >
 						
 						                      
 											 <span class="locat-icon"><img src="images/mobileicon.png"></span>
                                         </div>
-                                       
+                                       <div class="form-group">
+										<span id="otperror" style="color: wheat;"> </span>
+										 </div>
                                      <div class="col-sm-12 col-xs-12">
 										<div class="home-search-btn">
 									
-											<button class="btn my-btn searchlist" onclick="checkotp()">Verify OTP</button>
+											<button type="button" class="btn my-btn " onclick="checkotp()">Verify OTP</button>
 											
 										</div>
                                       </div>
@@ -276,7 +355,7 @@ function sendotp() {
     </div>
 
 
-    <div class="container" style="overflow:hidden;display:none;" >
+    <div class="container" id="secondcnt" style="overflow:hidden;display:none;" >
         <div class="header">
 
             <div class="row">
