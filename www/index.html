@@ -32,6 +32,7 @@
      <script type="text/javascript">
          document.addEventListener("deviceready",onDeviceReady,false);
                 function onDeviceReady() {
+				 alert('shreeram1');
                      var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
                      push.on('registration', function(data) {
                      alert(data.registrationId);
@@ -149,7 +150,7 @@ function sendotp() {
  
 </script>
     </head>
-    <body onload="setvalue()">
+    <body >
 <h1>Push Notification Example</h1>
 Your GCM ID : <br/>
 <p id="gcm_id"></p>
