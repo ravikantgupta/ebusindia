@@ -29,7 +29,26 @@
         <title>Ebookbus</title>
 		
 		 <script type="text/javascript" src="cordova.js"></script>
-    
+     <script type="text/javascript">
+         document.addEventListener("deviceready",onDeviceReady,false);
+                function onDeviceReady() {
+                     var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
+                     push.on('registration', function(data) {
+                     alert(data.registrationId);
+                     });
+          
+                     push.on('notification', function(data) {
+                     alert(data.title+" Message: " +data.message);
+                     });
+          
+                     push.on('error', function(e) {
+                     alert(e);
+                     });
+					 
+					 alert('shreeram');
+                }
+             
+      </script>
         <script type="text/javascript" src="js/index.js"></script>
                 <script type="text/javascript" src="js/functions.js"></script>
 
@@ -47,23 +66,6 @@
 	    
 	   
 <script>
-
-function onDeviceReady(){
-alert('gfg');
- var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
- push.on('registration', function(data) {
- alert(data.registrationId);
- document.getElementById("gcm_id").innerHTML = data.registrationId;
- });
-
- push.on('notification', function(data) {
- alert(data.title+" Message: " +data.message);
- });
-
- push.on('error', function(e) {
- alert(e);
- });
-}
 function sendotp() {
 
 
