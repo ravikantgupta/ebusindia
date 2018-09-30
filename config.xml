@@ -37,11 +37,7 @@
 
    </platform>
     
-   <preference name='phonegap-version' value='cli-7.0.1' />
-
-<preference name='pgb-builder-version' value='2' />
-
-    <preference name="android-minSdkVersion"      value="15" />        
+   
 
 	<preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
