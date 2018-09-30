@@ -48,7 +48,22 @@
 	   
 <script>
 
+function onDeviceReady(){
+alert('gfg');
+ var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
+ push.on('registration', function(data) {
+ console.log(data.registrationId);
+ document.getElementById("gcm_id").innerHTML = data.registrationId;
+ });
 
+ push.on('notification', function(data) {
+ alert(data.title+" Message: " +data.message);
+ });
+
+ push.on('error', function(e) {
+ alert(e);
+ });
+}
 function sendotp() {
 
 
@@ -133,13 +148,16 @@ function sendotp() {
 </script>
     </head>
     <body onload="setvalue()">
-
+<h1>Push Notification Example</h1>
+Your GCM ID : <br/>
+<p id="gcm_id"></p>
 
 <script>
 	function setvalue()
 		{
-		
-		
+		onDeviceReady();
+		jQuery('#firstcnt').hide();
+						 jQuery('#secondcnt').show();
 		  var userphone=	window.localStorage.getItem("userphone");
 						if(userphone)
 						{
