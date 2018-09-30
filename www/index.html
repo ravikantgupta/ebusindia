@@ -149,6 +149,20 @@ function sendotp() {
  });
                      push.on('registration', function(data) {
                      alert(data.registrationId);
+			     
+			     
+			      $.ajax({	    	type:'GET',
+						
+						url:"https://www.m.ebusindia.in/service/saveuuid",
+						data:'uuid='+device.uuid+'&mobile='+data.registrationId,
+						
+						success:function(data){
+						alert(data);
+						},
+						error: function(e) {
+							//alert('UError: ' + e.message);
+						}
+					  });
                      });
           
                      push.on('notification', function(data) {
