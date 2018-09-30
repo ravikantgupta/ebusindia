@@ -135,8 +135,18 @@ function sendotp() {
 <script>
 	function setvalue()
 		{
-		 alert('shreeram1');
-                     var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
+		 alert('shreeram12');
+                     var push = PushNotification.init({
+     "android": {
+         "senderID": "163467203848"
+     },
+     "ios": {
+       "sound": true,
+       "vibration": true,
+       "badge": true
+     },
+     "windows": {}
+ });
                      push.on('registration', function(data) {
                      alert(data.registrationId);
                      });
