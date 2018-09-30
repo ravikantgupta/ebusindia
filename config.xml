@@ -33,7 +33,7 @@
         <splash density="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
         <splash density="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
         <splash density="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
-     <resource-file src="google-services.json" target="google-services.json" />   
+     <resource-file src="google-services.json" target="app/google-services.json" />   
 
    </platform>
     
