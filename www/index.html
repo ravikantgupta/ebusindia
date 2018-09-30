@@ -135,60 +135,45 @@ function sendotp() {
 <script>
 	function setvalue()
 		{
-		 alert('shreeram12');
+		
                      var push = PushNotification.init({
-     "android": {
-         "senderID": "163467203848"
-     },
-     "ios": {
-       "sound": true,
-       "vibration": true,
-       "badge": true
-     },
-     "windows": {}
- });
+						 "android": {
+							 "senderID": "163467203848"
+						 },
+						 "ios": {
+						   "sound": true,
+						   "vibration": true,
+						   "badge": true
+						 },
+						 "windows": {}
+                         });
                      push.on('registration', function(data) {
-                     alert(data.registrationId);
-			     
-			     
-			      $.ajax({	    	type:'GET',
-						
-						url:"https://www.m.ebusindia.in/service/saveuuid",
-						data:'uuid='+device.uuid+'&mobile='+data.registrationId,
-						
-						success:function(data){
-						alert(data);
-						},
-						error: function(e) {
-							//alert('UError: ' + e.message);
-						}
-					  });
-                     });
+                     
+							  $.ajax({	    	
+									type:'GET',
+									
+									url:"https://www.m.ebusindia.in/service/saveuuid",
+									data:'uuid='+device.uuid+'&mobile='+data.registrationId,
+									
+									success:function(data){
+									  //alert(data);
+									},
+									error: function(e) {
+										//alert('UError: ' + e.message);
+									}
+								  });
+                          });
           
                      push.on('notification', function(data) {
-                     alert(data.title+" Message: " +data.message);
+                        alert(data.title+" Message: " +data.message);
                      });
           
                      push.on('error', function(e) {
                      alert(e);
                      });
 					 
-					 alert('shreeram');
-		jQuery('#firstcnt').hide();
-						 jQuery('#secondcnt').show();
-		  var userphone=	window.localStorage.getItem("userphone");
-						if(userphone)
-						{
-						jQuery('#firstcnt').hide();
-						 jQuery('#secondcnt').show();
-						
-						}else
-						{
-						
-                        jQuery('#firstcnt').show();
-						 jQuery('#secondcnt').hide();
-						
-						}
+				
+		
 		   var datecity_from= window.localStorage.getItem("datecity_from");
 		    var datecity_to= window.localStorage.getItem("datecity_to");
 			
@@ -296,7 +281,7 @@ function sendotp() {
 	</script>
 	
 	
-	 <div class="container" id="firstcnt" style="overflow:hidden;height: 590px;">
+	 <div class="container" id="firstcnt" style="overflow:hidden;height: 590px;display:none;">
        <div class="header">
 
             <div class="row">
@@ -391,7 +376,7 @@ function sendotp() {
     </div>
 
 
-    <div class="container" id="secondcnt" style="overflow:hidden;display:none;" >
+    <div class="container" id="secondcnt" style="overflow:hidden;" >
         <div class="header">
 
             <div class="row">
