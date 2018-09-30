@@ -18,7 +18,8 @@
     <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 	<plugin name="phonegap-plugin-push" spec="2.0.0">
     <param name="SENDER_ID" value="163467203848" />
-</plugin>
+	
+  </plugin>
 <!--<plugin name="cordova-plugin-sim" source="npm"/>-->
 	<platform name="android">
         <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
