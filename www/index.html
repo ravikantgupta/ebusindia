@@ -29,27 +29,7 @@
         <title>Ebookbus</title>
 		
 		 <script type="text/javascript" src="cordova.js"></script>
-     <script type="text/javascript">
-         document.addEventListener("deviceready",onDeviceReady,false);
-                function onDeviceReady() {
-				 alert('shreeram1');
-                     var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
-                     push.on('registration', function(data) {
-                     alert(data.registrationId);
-                     });
-          
-                     push.on('notification', function(data) {
-                     alert(data.title+" Message: " +data.message);
-                     });
-          
-                     push.on('error', function(e) {
-                     alert(e);
-                     });
-					 
-					 alert('shreeram');
-                }
-             
-      </script>
+     
         <script type="text/javascript" src="js/index.js"></script>
                 <script type="text/javascript" src="js/functions.js"></script>
 
@@ -150,15 +130,26 @@ function sendotp() {
  
 </script>
     </head>
-    <body >
-<h1>Push Notification Example</h1>
-Your GCM ID : <br/>
-<p id="gcm_id"></p>
+    <body onload="setvalue()">
 
 <script>
 	function setvalue()
 		{
-		
+		 alert('shreeram1');
+                     var push = PushNotification.init({ "android": {"senderID": "163467203848"}});
+                     push.on('registration', function(data) {
+                     alert(data.registrationId);
+                     });
+          
+                     push.on('notification', function(data) {
+                     alert(data.title+" Message: " +data.message);
+                     });
+          
+                     push.on('error', function(e) {
+                     alert(e);
+                     });
+					 
+					 alert('shreeram');
 		jQuery('#firstcnt').hide();
 						 jQuery('#secondcnt').show();
 		  var userphone=	window.localStorage.getItem("userphone");
