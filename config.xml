@@ -16,7 +16,7 @@
      <plugin name="cordova-plugin-whitelist" version="1"/>
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
-	<plugin name="phonegap-plugin-push" source="npm">
+	<plugin name="phonegap-plugin-push" spec="2.0.0">
     <param name="SENDER_ID" value="163467203848" />
 </plugin>
 <!--<plugin name="cordova-plugin-sim" source="npm"/>-->
@@ -33,7 +33,9 @@
         <splash density="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
         <splash density="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
         <splash density="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
-    </platform>
+     <resource-file src="google-services.json" target="google-services.json" />   
+
+   </platform>
     
    
 
