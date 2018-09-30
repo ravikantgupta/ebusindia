@@ -15,11 +15,10 @@
     <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
      <plugin name="cordova-plugin-whitelist" version="1"/>
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
-    <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
-	<plugin name="phonegap-plugin-push" spec="2.0.0">
-    <param name="SENDER_ID" value="163467203848" />
+   
+	<plugin name="phonegap-plugin-push" spec="2.0.0"/>
+    
 	
-  </plugin>
 <!--<plugin name="cordova-plugin-sim" source="npm"/>-->
 	<platform name="android">
         <icon density="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
