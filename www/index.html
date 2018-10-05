@@ -281,100 +281,6 @@ function sendotp() {
 	</script>
 	
 	
-	 <div class="container" id="firstcnt" style="overflow:hidden;height: 590px;display:none;">
-       <div class="header">
-
-            <div class="row">
-               
-                <div class="col-sm-2 col-xs-2"></div>
-
-                <div class="col-sm-3 col-xs-3" style="text-align:center;">
-
-                    <div id="loginContainer">
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="quick-link">
-            <div class="row">
-
-                <div class="col-sm-12 text-center ebus-app-logo">
-                    <img src="images/logo.png" class="img-responsive">
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="ebus-app-first">
-                        <div class="ebus-app-first-outer">
-                            <div class="ebus-app-first-inner">
-                                <div id="otpmobileno" class="ebus-app-first-form" >
-                                    <form >
-                                        <div class="form-group">
-                                             <input type="tel" min="7000000000" max="9999999999" pattern="[789][0-9]{9}" name="mobileno" id="mobileno" class="form-control place-color"  placeholder="Enter Mobile Number">
-						
-						                      
-											 <span class="locat-icon"><img src="images/mobileicon.png"></span>
-                                        </div>
-										<div class="form-group">
-										<span id="mobilenoerror" style="color: wheat;"> </span>
-										 </div>
-                                       
-                                     <div class="col-sm-12 col-xs-12">
-										<div class="home-search-btn">
-									
-											<button type="button" class="btn my-btn " onclick="sendotp()">Send OTP</button>
-											
-										</div>
-                                      </div>
-                                    </form>
-                                </div>
-								
-								
-								<div id="otpsms" class="ebus-app-first-form" style="display:none;">
-                                    <form >
-                                        <div class="form-group">
-                                             <input type="text" name="otp" id="otp" class="form-control place-color"  placeholder="Enter OTP">
-						                       
-											    <input type="hidden" name="otpno" id="otpno" >
-						
-						                      
-											 <span class="locat-icon"><img src="images/mobileicon.png"></span>
-                                        </div>
-                                       <div class="form-group">
-										<span id="otperror" style="color: wheat;"> </span>
-										 </div>
-                                     <div class="col-sm-12 col-xs-12">
-										<div class="home-search-btn">
-									
-											<button type="button" class="btn my-btn " onclick="checkotp()">Verify OTP</button>
-											
-										</div>
-                                      </div>
-                                    </form>
-                                </div>
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               
-
-            </div>
-
-			
-					
-			
-			
-        </div>
-
-
-    </div>
-
 
     <div class="container" id="secondcnt" style="overflow:hidden;" >
         <div class="header">
@@ -414,7 +320,31 @@ function sendotp() {
                 </div>
 
             </div>
+           <div class="bellicon" style="float: right;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+   
+    right: -53px;"><div style="    width: 35px;
+    height: 34px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;"> <img src="images/bell.png" class="" style="
+    width: 35px;
+"></div>
 
+<span style="margin-top: -22px;
+   
+    position: absolute;
+    color: red;
+    background: red;
+    margin-left: 22px;
+    border-radius: 50%;
+    height: 4px;
+    width: 6px;">.</span>
+</div>
+
+        
         </div>
 
 
