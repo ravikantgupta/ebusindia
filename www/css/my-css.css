@@ -1016,6 +1016,24 @@ label.label_check.c_on {
 	background-color:#fff;
 }
 
+.modal-dialog{
+	position: absolute !important;
+	 top: 5px;
+	 width: 94% !important;
+	     z-index: 999999;
+}
+
+.modal-content {
+   
+    background-color: #fcf8e3 !important;
+   margin-top: 36px;
+   height: 500px;
+    overflow: scroll;
+}
+.noti{
+	
+	border-bottom: inset;
+}
 .ui-widget.ui-widget-content{
 	border:none !important;
 }

@@ -320,28 +320,14 @@ function sendotp() {
                 </div>
 
             </div>
-           <div class="bellicon" style="float: right;
-    position: absolute;
-    height: 100px;
-    width: 100px;
-   
-    right: -53px;"><div style="    width: 35px;
-    height: 34px;
-    background-color: white;
-    color: black;
-    border-radius: 50%;"> <img src="images/bell.png" class="" style="
+           <div class="bellicon" onclick="shownotification()" style="float: right;position: absolute;
+    height: 100px;width: 100px;right: -53px;"><div style="width: 35px;
+    height: 34px;background-color: white;color: black;border-radius: 50%;"> <img src="images/bell.png" class="" style="
     width: 35px;
 "></div>
 
-<span style="margin-top: -22px;
-   
-    position: absolute;
-    color: red;
-    background: red;
-    margin-left: 22px;
-    border-radius: 50%;
-    height: 4px;
-    width: 6px;">.</span>
+<span style="margin-top: -22px;position: absolute;color: red;background: red;margin-left: 22px;
+    border-radius: 50%;height: 4px;width: 6px;">.</span>
 </div>
 
         
@@ -416,7 +402,44 @@ function sendotp() {
 
     </div>
 
-     
+      
+    <div id="notidialog" class="modal-dialog" style="display:none;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <button type="button" class="close" onclick="hidenotification()" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" >Notifications:</h4>
+        </div>
+        <div class="modal-body"><label>Some text:</label>
+          Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.
+		  
+        </div>
+		 
+       <div class="modal-body"><label>Some text:</label>
+          Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.
+		  
+        </div>
+		<div class="modal-body"><label>Some text:</label>
+          Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.
+		  
+        </div><div class="modal-body"><label>Some text:</label>
+          Some text in the modal.Some text in the modal.Some text in the modal.Some text in the modal.
+		  
+        </div>
+      </div>
+      
+    </div>
+  <script>
+  function shownotification()
+  {
+    jQuery('#notidialog').show();
+  }
+  function hidenotification()
+  {
+  jQuery('#notidialog').hide();
+  }
+  </script>
 
     </body>
 </html>
