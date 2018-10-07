@@ -167,26 +167,7 @@ function sendotp() {
                      push.on('notification', function(data) {
 					 
                         
-						
-						 jQuery('#notifi').html(' <center>Loading.....</center>');
-						 
-						 
-						 $.ajax({	    	
-									type:'GET',
-									
-									url:"https://www.m.ebusindia.in/service/getnotification",
-									data:'flag=101',
-									
-									success:function(data){
-									 
-									 jQuery('#notifi').html(data);
-									 
-									 
-									},
-									error: function(e) {
-										//alert('UError: ' + e.message);
-									}
-								  });
+						shownotification();
 						
 						
                      });
