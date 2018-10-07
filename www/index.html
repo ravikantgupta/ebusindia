@@ -420,7 +420,7 @@ function sendotp() {
   {
     jQuery('#notidialog').show();
 	
-	 jQuery('#notifi').html(' <center>Loading.....</center>');
+	 jQuery('#notifi').html(' <center style="margin-top: 50%;">Loading.....</center>');
 						 
 						 
 						 $.ajax({	    	
@@ -430,9 +430,7 @@ function sendotp() {
 									data:'flag=101',
 									
 									success:function(data){
-									 var nothtml='<div class="modal-header" >\\
-          <button type="button" class="close" onclick="hidenotification()" data-dismiss="modal">&times;</button>\\
-          <h4 class="modal-title" >Notifications:</h4></div>';
+									 var nothtml='<div class="modal-header" ><button type="button" class="close" onclick="hidenotification()" data-dismiss="modal">&times;</button><h4 class="modal-title" >Notifications:</h4></div>';
 									 jQuery('#notifi').html(nothtml+data);
 									 
 									 
